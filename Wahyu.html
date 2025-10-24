@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wahyu Perwira Sanusi - Portofolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'bg-black-deep': '#0A0A0A',
+            'primary-blue': '#1a73e8',
+            'text-light': '#E0E7FF',
+            'accent-neon': '#00FFFF',
+          },
+          fontFamily: {
+            heading: ['Montserrat', 'sans-serif'],
+            body: ['Roboto', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <style>
+    .animated-bg {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      overflow: hidden; z-index: -1;
+    }
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.6;
+      filter: blur(80px);
+      animation: moveBlob 20s infinite alternate;
+    }
+    .blob-1 {
+      background-color: #1a73e8;
+      width: 300px; height: 300px;
+      top: 10%; left: -10%;
+    }
+    .blob-2 {
+      background-color: #00FFFF;
+      width: 250px; height: 250px;
+      bottom: 5%; right: -10%;
+      animation-delay: 5s;
+    }
+    @keyframes moveBlob {
+      0% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(100px, -50px) scale(1.1); }
+      100% { transform: translate(0, 0) scale(1); }
+    }
+    .neon-border {
+      box-shadow: 0 0 15px rgba(0,255,255,0.8),
+                  0 0 5px #00FFFF inset;
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 50;
+      padding-top: 6rem;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.7);
+    }
+    .modal-content {
+      background-color: #111827;
+      margin: auto;
+      padding: 2rem;
+      border: 1px solid #00FFFF;
+      border-radius: 0.75rem;
+      max-width: 600px;
+    }
+  </style>
+</head>
+
+<body class="bg-bg-black-deep text-text-light font-body antialiased min-h-screen relative">
+
+  <!-- Background Animasi -->
+  <div class="animated-bg">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+  </div>
+
+  <!-- Konten Utama -->
+  <div class="flex flex-col items-center text-center max-w-6xl mx-auto px-6 py-12 relative z-10">
+
+    <!-- Header -->
+    <header class="flex flex-col items-center text-center space-y-8 mb-16">
+        <img src="Wahyuu.png" alt="Foto Profil"
+             class="h-56 w-56 rounded-full object-cover border-4 border-accent-neon neon-border transition duration-500 hover:scale-105">
+      
+        <div>
+          <!-- Nama dengan efek gradien -->
+          <h1 class="text-5xl md:text-6xl font-heading font-extrabold mb-3 
+                     bg-gradient-to-r from-accent-neon via-primary-blue to-accent-neon 
+                     bg-clip-text text-transparent tracking-wide">
+            Wahyu Perwira Sanusi
+          </h1>
+      
+          <!-- Subjudul -->
+          <p class="text-xl text-primary-blue uppercase tracking-[0.3em] mb-6 font-semibold">
+            Frontend Developer | Creative Tech Team
+          </p>
+      
+          <!-- Deskripsi -->
+          <p class="text-gray-300 mb-8 max-w-2xl mx-auto leading-relaxed">
+            Developer muda dengan fokus pada desain antarmuka, efisiensi kode, dan pengalaman pengguna modern.
+            Saya bersemangat menciptakan solusi digital yang berdampak nyata.
+          </p>
+      
+          <!-- Ikon Sosial -->
+          <div class="flex justify-center space-x-6 text-2xl">
+            <a href="https://www.instagram.com/xwhyu_23/" target="_blank" class="hover:text-accent-neon transition"><i class="fab fa-instagram"></i></a>
+            <a href="https://github.com/Wahyu-2" target="_blank" class="hover:text-accent-neon transition"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/wahyu-perwira-sanusi-234337339/" target="_blank" class="hover:text-accent-neon transition"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+      </header>
+      
+
+    <!-- Section Project -->
+    <section class="w-full mb-20">
+      <h2 class="text-4xl font-heading font-bold text-primary-blue mb-12 border-b-2 border-primary-blue inline-block pb-1">
+        Proyek & Kontribusi
+      </h2>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
+        <div class="bg-gray-900 p-6 rounded-xl shadow-2xl border border-gray-800 hover:border-accent-neon transition cursor-pointer w-80"
+             onclick="openModal('project1')">
+          <h3 class="text-2xl font-heading font-semibold text-accent-neon mb-2">
+            Platform Website UMKM Buket Bunga (Floralish)
+          </h3>
+          <p class="text-sm text-gray-400">Leader Team, Frontend & UI/UX</p>
+        </div>
+
+        <div class="bg-gray-900 p-6 rounded-xl shadow-2xl border border-gray-800 hover:border-accent-neon transition cursor-pointer w-80"
+             onclick="openModal('project2')">
+          <h3 class="text-2xl font-heading font-semibold text-accent-neon mb-2">Leaderboard Dashboard</h3>
+          <p class="text-sm text-gray-400">Fullstack Native (HTML, CSS, JS)</p>
+        </div>
+
+        <div class="bg-gray-900 p-6 rounded-xl shadow-2xl border border-gray-800 hover:border-accent-neon transition cursor-pointer w-80"
+             onclick="openModal('project3')">
+          <h3 class="text-2xl font-heading font-semibold text-accent-neon mb-2">Website LaluSwim’s Academy</h3>
+          <p class="text-sm text-gray-400">Full Stack Developer</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Galeri Thumbnail -->
+<section class="w-full mb-20">
+    <h2 class="text-4xl font-heading font-bold text-primary-blue mb-12 border-b-2 border-primary-blue text-center pb-1">
+      Galeri Thumbnail Proyek
+    </h2>
+  
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 justify-items-center">
+  
+      <!-- Floralish -->
+      <div onclick="openModal('thumb1')" 
+           class="relative group rounded-xl overflow-hidden border border-gray-800 hover:border-accent-neon transition w-80 h-48">
+        <img src="floralish.png" alt="Floralish"
+             class="object-cover w-full h-full opacity-90 group-hover:opacity-100 transition duration-500">
+        <div class="absolute inset-0 bg-black bg-opacity-60 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+          <h3 class="text-accent-neon text-lg font-semibold">Floralish</h3>
+          <p class="text-sm text-gray-300">Laravel • Front-End Dev</p>
+        </div>
+      </div>
+  
+      <!-- Jota-Joti Leaderboard -->
+      <div onclick="openModal('thumb3')" 
+           class="relative group rounded-xl overflow-hidden border border-gray-800 hover:border-accent-neon transition w-48 h-80">
+        <img src="LeaderBoard.png" alt="Leaderboard"
+             class="object-cover w-full h-full opacity-90 group-hover:opacity-100 transition duration-500">
+        <div class="absolute inset-0 bg-black bg-opacity-60 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+          <h3 class="text-accent-neon text-lg font-semibold">Live Dashboard</h3>
+          <p class="text-sm text-gray-300">Native HTML + CSS</p>
+        </div>
+      </div>
+      
+      <!-- Lalu Swim Academy -->
+      <div onclick="openModal('thumb2')" 
+           class="relative group rounded-xl overflow-hidden border border-gray-800 hover:border-accent-neon transition w-96 h-52">
+        <img src="Lalu's.png" alt="Lalu Swim"
+             class="object-cover w-full h-full opacity-90 group-hover:opacity-100 transition duration-500">
+        <div class="absolute inset-0 bg-black bg-opacity-60 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+          <h3 class="text-accent-neon text-lg font-semibold">Lalu Swim Academy</h3>
+          <p class="text-sm text-gray-300">Full Stack • Laravel + Tailwind</p>
+        </div>
+      </div>
+  
+  
+    </div>
+  </section>
+  
+  
+
+    <!-- Footer -->
+    <footer class="text-center py-8 mt-12 border-t border-gray-800 w-full">
+      <a href="mailto:wahyuperwirasanusi0323@gmail.com"
+         class="block text-lg md:text-xl font-heading text-primary-blue hover:text-accent-neon transition">
+        wahyuperwirasanusi0323@gmail.com
+      </a>
+      <p class="text-sm text-gray-500 mt-4">
+        © 2025 | Portofolio — Dibangun dengan
+        <span class="text-red-500">❤️</span> & TailwindCSS
+      </p>
+    </footer>
+  </div>
+
+  <!-- Script Modal -->
+  <script>
+    function openModal(id) {
+      document.getElementById(id).style.display = 'block';
+    }
+    function closeModal(id) {
+      document.getElementById(id).style.display = 'none';
+    }
+  </script>
+</body>
+</html>
